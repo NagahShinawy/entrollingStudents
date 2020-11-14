@@ -1,0 +1,54 @@
+
+    {% extends "base.html" %}
+   {% block title %} Register {% endblock %}
+    {% block content %}
+    <h2>New User Registration</h2>
+
+    <div class="container">
+        <form name="register" action="{{ url_for('register') }}" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>{{ title }}</legend>
+                <p>
+                        {{ form.email.label }}
+                        {{ form.email }}
+                        {% for error in form.email.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </p>
+                <p>
+                        {{ form.password.label }}
+                        {{ form.password }}
+                        {% for error in form.password.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </p>
+                <p>
+                        {{ form.password2.label }}
+                        {{ form.password2 }}
+                        {% for error in form.password2.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </p>
+                <p>
+                        {{ form.fname.label }}
+                        {{ form.fname }}
+                        {% for error in form.fname.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </p>
+                <p>
+                        {{ form.lname.label }}
+                        {{ form.lname }}
+                        {% for error in form.lname.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </p>
+                <p>
+                        {{ form.submit }}
+                </p>
+            </fieldset>
+        </form>
+        <h3>Already have an account  ? <a href="{{ url_for('login') }}">Login</a> </h3>
+    </div>
+    {% endblock %}

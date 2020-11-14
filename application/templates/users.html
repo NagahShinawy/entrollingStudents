@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">User ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <!-- Construct the rest of users here -->
+            {% if users %}
+                {% for user in users %}
+                    <tr>
+                    <td scope='row'>{{user.user_id}}</td>
+                    <td>{{ user.fname }}</td>
+                    <td>{{ user.lname }}</td>
+                    <td>{{  user.email }}</td>
+                    <td>{{  user.email }}</td>
+                    <td><a href="{{ url_for('user' ,user_id=user.user_id) }}"><button class="btn-enroll" type="button">Show</button></a></td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <h1>No users</h1>
+            {% endif %}
+
+
+            </tbody>
+        </table>
+{% endblock %}
+
+
+
+

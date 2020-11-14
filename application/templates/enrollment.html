@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        {% if classes %}
+            <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Course ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Credits</th>
+                <th scope="col">Term</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <!-- Construct the rest of courses here -->
+            {% for obj_class in classes %}
+                <tr>
+                <td scope='row'>{{obj_class.course_id}}</td>
+                <td>{{ obj_class.title }} {{ obj_class['course_id'] }}</td>
+                <td>{{ obj_class.desc }}</td>
+                <td>{{ obj_class['credits'] }}</td>
+                <td>{{ obj_class.terms }}</td>
+                <td>
+                    {% with course=obj_class %}
+                        {# comment {% include 'includes/confirm-delete.html' %} #}
+                        <button onclick="confirm_delete('{{ course.title }}')">Delete me</button>
+                    {% endwith %}
+
+                </td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+        {% else %}
+            <h4>No Course Enrolled <a href="{{ url_for('courses') }}">enroll now ?</a></h4>
+        {% endif %}
+    </div>
+{% endblock %}

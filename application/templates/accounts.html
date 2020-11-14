@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Counter</th>
+                <th scope="col">Account ID</th>
+                <th scope="col">Account Joined</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <!-- Construct the rest of users here -->
+            {% if accounts %}
+                {% for account in accounts %}
+                    <tr>
+                    <td scope='row'>{{ account.increment }}</td>
+                    <td>{{ account._id }}</td>
+                    <td>{{ account.joined.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <h1>No Accounts</h1>
+            {% endif %}
+
+            </tbody>
+        </table>
+{% endblock %}
+
+
+
+

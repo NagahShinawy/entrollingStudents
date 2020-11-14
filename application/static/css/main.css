@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    position: relative;
+    margin:0px;
+}
+
+header {
+    text-align: center;
+}
+
+li {
+    display: inline;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover { color : red;}
+
+hr {
+    width: 100%;
+    height:4px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: darkblue;
+    border: 0 none;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.top-container {
+    background: #37383a;
+    padding:5px;
+    border-bottom:2px solid #0f0f0f;
+}
+.bottom-container {
+    background: #37383a;
+    padding:5px;
+    border-top:2px solid #0f0f0f;
+    // position:absolute;
+    bottom:0;
+}
+
+.container-term {
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+footer {
+    text-align: center;
+    height: 50px;
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+    bottom: 0px;
+}
+
+.btn-submit {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+.btn-submit:hover {
+    opacity: 1;
+}
+
+.btn-enroll {
+    color:white;
+    background:#007bff;
+    border-radius:.25rem;
+    padding: .5rem 1rem;
+    border:none !important;
+    cursor: pointer !important;
+
+}
+
+.btn-show {
+    color:white;
+    background:#28a745;
+    border-radius:.25rem;
+    padding: .5rem 1rem;
+    border:none !important;
+    cursor: pointer !important;
+
+}
+
+.btn-enroll:hover
+{
+    background-color:#0062cc !important;
+}
+.show-value {
+    background-color:yellow !important ;
+}
+
+.msg {
+    margin-left: 400px !important;
+    padding: 5px !important;
+    color:white;
+    border-radius: 5px !important;
+}
+
+.msg.success{
+background: #28a745;
+}
+
+.msg.error{
+background: #dc3545;
+width: 373px;
+margin-left: 301px !important;
+}
+
+span.error-message{
+color: #721c24 !important;
+background-color: #f8d7da !important;
+border-color: #f5c6cb !important;
+}
+
+/* 404  start */
+
+.fundo{
+  animation: scales 3s alternate  infinite;
+  transform-origin: center;
+}
+.pao-baixo{
+   animation: rotatepao 14s cubic-bezier(.1,.49,.41,.97)  infinite;
+  transform-origin: center;
+}
+.pao-cima{
+   animation: rotatepao 7s 1s cubic-bezier(.1,.49,.41,.97)  infinite;
+  transform-origin: center;
+}
+.olhos{animation: olhos   2s  alternate  infinite;
+   transform-origin: center;
+}
+
+.left-sparks{animation: left-sparks   4s  alternate  infinite;
+      transform-origin: 150px 156px;
+}
+
+.right-sparks{animation: left-sparks   4s  alternate  infinite;
+      transform-origin: 310px 150px;
+}
+
+.olhos{animation: olhos   2s  alternate  infinite;
+   transform-origin: center;
+}
+@keyframes scales{
+  from { transform: scale(0.98)}
+  to{ transform: scale(1)}
+}
+
+@keyframes rotatepao{
+  0% { transform:  rotate(0deg)}
+  50% , 60%{ transform:  rotate(-20deg)}
+  100%{  transform:  rotate(0deg) }
+
+}
+
+@keyframes olhos{
+  0%{
+    transform: rotateX(0deg);
+  }
+   100%{
+    transform: rotateX(30deg);
+  }
+}
+
+@keyframes left-sparks{
+  0%{
+    opacity: 0;
+  }
+
+}
+
+
+.main{
+
+  min-height: 600px;
+  margin: 0px auto;
+  width: auto;
+  max-width: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: dash 4s   alternate infinite;
+}
+
+@keyframes dash{
+   0%, 30%{
+     fill: 4B4B62;
+    stroke-dashoffset:   0;
+  }
+   80%,100%{
+     fill: transparent;
+    stroke-dashoffset:  -200;
+  }
+
+
+}
+
+/* 404 end */

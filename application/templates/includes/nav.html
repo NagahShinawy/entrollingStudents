@@ -1,0 +1,58 @@
+    <header>
+        <nav>
+            <ul class="nav nav-pills">
+                {% if 'home' in request.path or 'index' in request.path or  '/' in request.url_rule.endpoint %}
+                    <li class="nav-item"><a href="{{ url_for('myindex') }}" class="nav-link active">Home</a></li>
+                {% else %}
+                    <li class="nav-item"><a href="{{ url_for('myindex') }}" class="nav-link">Home</a></li>
+                {% endif %}
+
+                {# comment ################## 2 ########################### #}
+
+                {% if 'courses' in request.path%}
+                    <li class="nav-item"><a href="{{ url_for('courses') }}" class="nav-link active">Classes</a></li>
+                {% else %}
+                   <li class="nav-item"><a href="{{ url_for('courses') }}" class="nav-link">Classes</a></li>
+                {% endif %}
+               {# comment ################## 3 ########################### #}
+                {% if not is_auth %}
+                    {% if 'register' in request.path%}
+                       <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link active">Register</a></li>
+                    {% else %}
+                        <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link">Register</a></li>
+                    {% endif %}
+                {% endif %}
+
+                {# comment ################## 4 ########################### #}
+                {% if not is_auth %}
+                   {% if 'login' in request.path%}
+                        <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link active">Login</a></li>
+                    {% else %}
+                        <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link">Login</a></li>
+                    {% endif %}
+                {% endif %}
+
+                {# comment ################## 5 ########################### #}
+                <li class="nav-item"><a href="{{ url_for('service') }}" class="nav-link {% if service %} active {% endif %}">Service</a></li>
+                 {# comment ################## 6 ########################### #}
+                <li class="nav-item"><a href="{{ url_for('contact') }}" class="nav-link {% if contact %} active {% endif %}">Contact</a></li>
+                 {# comment ################## 7 ########################### #}
+                <li class="nav-item"><a href="{{ url_for('post') }}" class="nav-link {% if post %} active {% endif %}">POST</a></li>
+                 {# comment ################## 8 ########################### #}
+                <li class="nav-item"><a href="{{ url_for('users') }}" class="nav-link {% if 'users' in request.path %} active {% endif %}">Users</a></li>
+                 {# comment ################## 9 ########################### #}
+                <li class="nav-item"><a href="{{ url_for('blogs') }}" class="nav-link {% if 'blogs' in request.path %} active {% endif %}">Blogs</a></li>
+                {# comment ################## 10 ########################### #}
+                <li class="nav-item"><a href="{{ url_for('account') }}" class="nav-link {% if 'accounts' in request.path %} active {% endif %}">Accounts</a></li>
+                {# comment ################## 11 ########################### #}
+                {% if is_auth %}
+                    <li class="nav-item"><a href="{{ url_for('enroll') }}" class="nav-link {% if enroll %} active {% endif %}">Enrollment</a></li>
+                {% endif %}
+                {# comment ################## 11 ########################### #}
+                {% if is_auth %}
+                    <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link {% if enroll %} active {% endif %}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <hr style="clear:both">
+    </header>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> {% block title %} Home {% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<!--    <link rel="stylesheet" href="static/css/main.css"/>-->
+    <link rel="stylesheet" href="/static/css/main.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/confirm-delete-style.css') }}"/>
+</head>
+<body>
+
+{% include 'includes/header.html' %}
+
+
+
+<div class="container">
+
+    {% include 'includes/nav.html' %}
+    {% include 'includes/messages.html' %}
+    {% block content %}
+            // you code here
+    {% endblock %}
+
+    {# comment  duplicate content block #}
+    {# comment  {{ self.content() }}  #}
+    {# comment  {{ self }}  #}
+
+
+</div>
+
+
+{% include 'includes/footer.html' %}
+{% include 'includes/js.html' %}
+
+</body>
+</html>
